@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explore & Adventure Travel - Tempat terbaik untuk backpacker dan petualang sejati.">
+    <meta name="keywords" content="travel, adventure, backpacker, explore, destinasi">
+    <meta name="author" content="Explore & Adventure Travel">
+    <title>Explore & Adventure Travel</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .hero {
+            background: url('images/borobudur2.jpg') center/cover no-repeat;
+            height: 90vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+            position: relative;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+        }
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: bold;
+            position: relative;
+            z-index: 1;
+        }
+        .hero p {
+            font-size: 1.5rem;
+            position: relative;
+            z-index: 1;
+        }
+        .explore-btn {
+            background-color: #ff9800;
+            border: none;
+            padding: 10px 20px;
+            color: white;
+            font-size: 1.2rem;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            position: relative;
+            z-index: 1;
+        }
+        .explore-btn:hover {
+            background-color: #e68900;
+        }
+        .search-section {
+            padding: 50px 20px;
+            text-align: center;
+            background-color: #f8f9fa;
+        }
+        .map-container {
+            margin-top: 50px;
+            text-align: center;
+        }
+        .map-container iframe {
+            width: 100%;
+            height: 450px;
+            border: 0;
+        }
+        .testimonial-section {
+            padding: 50px 20px;
+            background-color: #f8f9fa;
+        }
+        .testimonial-card {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .footer {
+            background-color: #333;
+            color: white;
+            padding: 20px 0;
+        }
+        .footer a {
+            color: #ff9800;
+            text-decoration: none;
+        }
+        .footer a:hover {
+            color: #e68900;
+        }
+    </style>
+</head>
+<body>
+    <header class="hero">
+        <div>
+            <h1>Jelajahi Dunia, Temukan Petualangan!</h1>
+            <p>Tempat terbaik untuk backpacker dan petualang sejati</p>
+            <button class="explore-btn" onclick="scrollToDestinasi()">Mulai Eksplorasi</button>
+        </div>
+    </header>
+    
+    <section class="search-section">
+        <div class="container">
+            <h2 id="cari-destinasi">Cari Destinasi Petualangan</h2>
+            <form class="row g-3 justify-content-center">
+                <div class="col-md-6">
+                    <input type="text" class="form-control" placeholder="Masukkan destinasi..." required>
+                </div>
+                <div class="col-md-2">
+                    <button type="submit" class="btn btn-warning w-100">Cari</button>
+                </div>
+            </form>
+        </div>
+    </section>
+    
+    <section class="container mt-5">
+        <h2 class="text-center">Destinasi Populer</h2>
+        <div id="destinationCarousel" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="images/lava-tour-merapi.jpg" class="d-block w-100" alt="Gunung">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Lava Tour Merapi</h5>
+                        <p>Merasakan uji adrenalin bersama driver kami yang sudah berpengalaman</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="images/pantai-gunung-kidul.jpg" class="d-block w-100" alt="Pantai">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Pantai Gunung Kidul</h5>
+                        <p>Menikmati suasana pantai di gunung kidul yang sangat indah</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="images/hutan-pinus.jpg" class="d-block w-100" alt="Hutan">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Hutan Pinus</h5>
+                        <p>Menikmati suasana alam yang masih asri untuk sejenak melepas beban</p>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#destinationCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#destinationCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </section>
+
+    <section class="container map-container">
+        <h2 class="text-center">Peta Interaktif</h2>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31637.99057126292!2d110.36491754999999!3d-7.7955798!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7a579c6aef5e3b%3A0x4027a76e352f750!2sYogyakarta!5e0!3m2!1sen!2sid!4v1647615488926!5m2!1sen!2sid" allowfullscreen="" loading="lazy"></iframe>
+    </section>
+
+    <section class="container mt-5">
+        <h2 class="text-center">Booking Perjalanan</h2>
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <form>
+                    <div class="mb-3">
+                        <label class="form-label">Nama Lengkap</label>
+                        <input type="text" class="form-control" placeholder="Masukkan nama lengkap" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Email</label>
+                        <input type="email" class="form-control" placeholder="Masukkan email" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Destinasi</label>
+                        <input type="text" class="form-control" placeholder="Masukkan destinasi yang diinginkan" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Tanggal Keberangkatan</label>
+                        <input type="date" class="form-control" required>
+                    </div>
+                    <button type="submit" class="btn btn-success w-100">Pesan Sekarang</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonial-section">
+        <div class="container">
+            <h2 class="text-center">Testimoni Pelanggan</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="testimonial-card">
+                        <p>"Perjalanan yang luar biasa! Pelayanan yang sangat baik dan destinasi yang menakjubkan."</p>
+                        <p><strong>- Marni Pertiwi</strong></p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="testimonial-card">
+                        <p>"Sangat puas dengan paket perjalanan yang ditawarkan. Pasti akan kembali lagi!"</p>
+                        <p><strong>- Bambang Rejeki</strong></p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="testimonial-card">
+                        <p>"Pengalaman yang tak terlupakan. Terima kasih Explore & Adventure Travel!"</p>
+                        <p><strong>- Teuku Rama</strong></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h5>Tentang Kami</h5>
+                    <p>Explore & Adventure Travel adalah perusahaan travel yang berdedikasi untuk memberikan pengalaman petualangan terbaik.</p>
+                </div>
+                <div class="col-md-4">
+                    <h5>Link Cepat</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#">Beranda</a></li>
+                        <li><a href="#">Destinasi</a></li>
+                        <li><a href="#">Paket Perjalanan</a></li>
+                        <li><a href="#">Kontak</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h5>Hubungi Kami</h5>
+                    <p>Email: info@exploreadventure.com</p>
+                    <p>Telepon: +62 123 4567 890</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-3">
+                <p>&copy; 2025 Explore & Adventure Travel. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        function scrollToDestinasi() {
+            const destinasiSection = document.getElementById('cari-destinasi');
+            destinasiSection.scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
